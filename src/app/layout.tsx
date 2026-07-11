@@ -3,8 +3,7 @@ import { Orbitron, Rajdhani, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
-import ParticleField from "@/components/ParticleField";
-import Atmosphere from "@/components/Atmosphere";
+import IntroGate from "@/components/IntroGate";
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -40,10 +39,10 @@ export default function RootLayout({
       className={`${orbitron.variable} ${rajdhani.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col relative">
-        <ParticleField />
-        <Atmosphere />
-        <CustomCursor />
-        <SmoothScroll>{children}</SmoothScroll>
+        <IntroGate>
+          <CustomCursor />
+          <SmoothScroll>{children}</SmoothScroll>
+        </IntroGate>
       </body>
     </html>
   );

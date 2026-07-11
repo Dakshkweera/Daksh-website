@@ -1,47 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { profile } from "@/lib/data";
-import DomainExpansion from "@/components/DomainExpansion";
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [showDomain, setShowDomain] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    function handleEnded() {
-      setShowDomain(true);
-      setTimeout(() => setShowDomain(false), 2200);
-    }
-
-    video.addEventListener("ended", handleEnded);
-    return () => video.removeEventListener("ended", handleEnded);
-  }, []);
-
   return (
     <section className="relative min-h-screen flex flex-col items-start justify-center px-6 md:px-16 overflow-hidden">
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
-        src="/intro.mp4"
-        autoPlay
-        muted
-        playsInline
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(5,2,1,0.92) 0%, rgba(5,2,1,0.75) 40%, rgba(5,2,1,0.55) 70%, rgba(5,2,1,0.35) 100%)",
-        }}
-        aria-hidden="true"
-      />
-
       <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_70%)]" />
 
       <div
@@ -94,8 +58,6 @@ export default function Hero() {
           </a>
         </div>
       </motion.div>
-
-      <DomainExpansion visible={showDomain} />
     </section>
   );
 }
