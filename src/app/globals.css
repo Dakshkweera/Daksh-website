@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050201;
+  --background-elevated: #0f0503;
+  --foreground: #fff0ea;
+  --foreground-muted: #a68f89;
+  --neon-purple: #ff2f0f;
+  --neon-purple-light: #ff7a3d;
+  --neon-cyan: #ff9d1f;
+  --neon-pink: #8a1010;
+  --border-glow: rgba(255, 47, 15, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-purple-light: var(--neon-purple-light);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-pink: var(--neon-pink);
+  --color-border-glow: var(--border-glow);
+  --font-display: var(--font-orbitron);
+  --font-heading: var(--font-rajdhani);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--neon-purple);
+  color: #050201;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-purple) var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-purple);
+  border-radius: 8px;
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 12px rgba(255, 47, 15, 0.8), 0 0 32px rgba(255, 47, 15, 0.4);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 12px rgba(255, 157, 31, 0.8), 0 0 32px rgba(255, 157, 31, 0.4);
+}
+
+.glass-panel {
+  background: rgba(15, 5, 3, 0.6);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glow);
+}
+
+.glow-border {
+  box-shadow: 0 0 0 1px var(--border-glow), 0 0 24px rgba(255, 47, 15, 0.15);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.glow-border:hover {
+  box-shadow: 0 0 0 1px rgba(255, 47, 15, 0.8), 0 0 40px rgba(255, 47, 15, 0.4), 0 0 80px rgba(255, 157, 31, 0.15);
+  transform: translateY(-4px);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 47, 15, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 47, 15, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
