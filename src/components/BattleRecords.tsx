@@ -1,6 +1,5 @@
 import Reveal from "@/components/Reveal";
 import { battleRecords } from "@/lib/data";
-import { InkUnderline } from "@/components/ui/Ink";
 
 export default function BattleRecords() {
   const [featured, ...rest] = battleRecords;
@@ -10,8 +9,7 @@ export default function BattleRecords() {
       <div className="max-w-4xl mx-auto">
         <Reveal>
           <h2 className="text-chapter-label mb-3">Battle Records</h2>
-          <p className="text-section-heading text-3xl md:text-4xl mb-4">Hackathons &amp; major wins</p>
-          <InkUnderline className="mb-16" />
+          <p className="text-section-heading text-3xl md:text-4xl mb-16">Hackathons &amp; major wins</p>
         </Reveal>
 
         <Reveal>

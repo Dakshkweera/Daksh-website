@@ -1,6 +1,5 @@
 import Reveal from "@/components/Reveal";
 import { blogs, profile } from "@/lib/data";
-import { InkUnderline } from "@/components/ui/Ink";
 
 export default function Blogs() {
   return (
@@ -8,8 +7,7 @@ export default function Blogs() {
       <div className="max-w-4xl mx-auto">
         <Reveal>
           <h2 className="text-chapter-label mb-3">Scroll Archive</h2>
-          <p className="text-section-heading text-3xl md:text-4xl mb-4">Technical writing</p>
-          <InkUnderline className="mb-16" />
+          <p className="text-section-heading text-3xl md:text-4xl mb-16">Technical writing</p>
         </Reveal>
 
         {blogs.length === 0 ? (

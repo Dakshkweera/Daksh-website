@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Orbitron, Rajdhani, Inter } from "next/font/google";
+import { Fraunces, Rajdhani, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import IntroGate from "@/components/IntroGate";
 
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["500", "700", "900"],
+  weight: ["500", "600", "700", "900"],
+  style: ["normal", "italic"],
 });
 
 const rajdhani = Rajdhani({
@@ -36,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${orbitron.variable} ${rajdhani.variable} ${inter.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${rajdhani.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col relative">
         <IntroGate>

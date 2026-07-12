@@ -1,6 +1,5 @@
 import Reveal from "@/components/Reveal";
 import { competitive } from "@/lib/data";
-import { InkUnderline } from "@/components/ui/Ink";
 
 export default function CompetitiveJourney() {
   return (
@@ -9,7 +8,6 @@ export default function CompetitiveJourney() {
         <Reveal>
           <h2 className="text-chapter-label mb-3">The Trials</h2>
           <p className="text-section-heading text-3xl md:text-4xl mb-4">Competitive programming</p>
-          <InkUnderline className="mb-4" />
           <p className="text-body max-w-xl mb-16">
             Where algorithmic thinking got sharpened, one problem at a time.
           </p>

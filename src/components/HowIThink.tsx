@@ -1,6 +1,5 @@
 import Reveal from "@/components/Reveal";
 import { howIThink } from "@/lib/data";
-import { InkUnderline } from "@/components/ui/Ink";
 
 export default function HowIThink() {
   return (
@@ -8,8 +7,7 @@ export default function HowIThink() {
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <h2 className="text-chapter-label mb-3">My Way</h2>
-          <p className="text-section-heading text-3xl md:text-4xl mb-4">How I think</p>
-          <InkUnderline className="mb-16" />
+          <p className="text-section-heading text-3xl md:text-4xl mb-16">How I think</p>
         </Reveal>
 
         <div className="space-y-4">

@@ -1,6 +1,5 @@
 import Reveal from "@/components/Reveal";
 import { skills } from "@/lib/data";
-import { InkUnderline } from "@/components/ui/Ink";
 
 export default function Skills() {
   return (
@@ -8,8 +7,7 @@ export default function Skills() {
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <h2 className="text-chapter-label mb-3">The Arsenal</h2>
-          <p className="text-section-heading text-3xl md:text-4xl mb-4">Technical capabilities</p>
-          <InkUnderline className="mb-12" />
+          <p className="text-section-heading text-3xl md:text-4xl mb-12">Technical capabilities</p>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-6">

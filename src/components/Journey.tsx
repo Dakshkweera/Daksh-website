@@ -1,6 +1,6 @@
 import Reveal from "@/components/Reveal";
 import { journey } from "@/lib/data";
-import { InkCircle, InkUnderline } from "@/components/ui/Ink";
+import { InkCircle } from "@/components/ui/Ink";
 
 export default function Journey() {
   return (
@@ -8,8 +8,7 @@ export default function Journey() {
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <h2 className="text-chapter-label mb-3">The Path</h2>
-          <p className="text-section-heading text-3xl md:text-4xl mb-4">How the identity formed</p>
-          <InkUnderline className="mb-16" />
+          <p className="text-section-heading text-3xl md:text-4xl mb-16">How the identity formed</p>
         </Reveal>
 
         <div className="relative">

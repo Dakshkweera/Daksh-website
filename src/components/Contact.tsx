@@ -1,6 +1,6 @@
 import Reveal from "@/components/Reveal";
 import { profile, nextChapter } from "@/lib/data";
-import { InkUnderline } from "@/components/ui/Ink";
+import EditorialLink from "@/components/ui/EditorialLink";
 
 export default function Contact() {
   return (
@@ -8,26 +8,17 @@ export default function Contact() {
       <div className="max-w-3xl mx-auto text-center">
         <Reveal>
           <h2 className="text-chapter-label mb-3">The Next Chapter</h2>
-          <p className="text-section-heading text-3xl md:text-5xl mb-4">{nextChapter.statement}</p>
-          <InkUnderline className="mx-auto mb-10" />
+          <p className="text-section-heading text-3xl md:text-5xl mb-10">{nextChapter.statement}</p>
         </Reveal>
 
         <Reveal delay={0.15}>
           <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
-            <a
-              href={`mailto:${profile.email}`}
-              className="font-heading uppercase tracking-wide text-sm text-parchment border-b border-ink pb-1 hover:text-ink transition-colors duration-200"
-            >
+            <EditorialLink href={`mailto:${profile.email}`} variant="primary">
               {profile.email}
-            </a>
-            <a
-              href="/Daksh_Kweera_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-heading uppercase tracking-wide text-sm text-warmgray border-b border-hairline pb-1 hover:text-parchment transition-colors duration-200"
-            >
+            </EditorialLink>
+            <EditorialLink href="/Daksh_Kweera_Resume.pdf" external>
               Résumé
-            </a>
+            </EditorialLink>
           </div>
         </Reveal>
 

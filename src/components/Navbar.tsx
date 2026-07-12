@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import EditorialLink from "@/components/ui/EditorialLink";
 
 const LINKS = [
   { href: "#who-i-am", label: "Who I Am" },
@@ -30,7 +31,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="text-display text-lg tracking-widest">
+        <a href="#" className="text-display text-xl tracking-wide text-parchment">
           DK
         </a>
         <ul className="hidden lg:flex items-center gap-6 font-heading text-xs tracking-wide uppercase text-warmgray">
@@ -45,14 +46,9 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <a
-          href="/Daksh_Kweera_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-heading text-sm uppercase tracking-wide px-4 py-2 border border-hairline text-warmgray hover:border-ink hover:text-ink transition-colors duration-200"
-        >
+        <EditorialLink href="/Daksh_Kweera_Resume.pdf" external>
           Resume
-        </a>
+        </EditorialLink>
       </nav>
     </header>
   );

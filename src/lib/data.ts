@@ -10,8 +10,9 @@ export const profile = {
 
 export const whoIAm = {
   eyebrow: "The Shinobi",
-  lead: "A B.Tech CSE (AI/ML) student at BIT Mesra.",
-  body: "My work centers on full-stack systems, AI-powered applications, multi-agent LLM systems, RAG architectures, and analytics platforms — with problem solving as the thread running through all of it.",
+  lead: "I build full-stack systems and AI-powered applications.",
+  body: "Multi-agent LLM systems, RAG architectures, and analytics platforms — with problem solving as the thread running through all of it.",
+  credentials: "B.Tech CSE (AI/ML) • BIT Mesra",
 };
 
 export const journey = [
