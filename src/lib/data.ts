@@ -16,14 +16,66 @@ export const whoIAm = {
 };
 
 export const journey = [
-  { stage: "Computer science foundations", detail: "OOP, OS, DBMS, computer networks, system design." },
-  { stage: "Data structures and algorithms", detail: "The base layer for everything that followed." },
-  { stage: "Competitive problem solving", detail: "Codeforces, LeetCode, GeeksforGeeks — 1000+ problems." },
-  { stage: "Building full-stack applications", detail: "React, Node.js, Express, FastAPI." },
-  { stage: "Backend systems, APIs, and databases", detail: "MongoDB, MySQL, PostgreSQL, REST APIs." },
-  { stage: "Exploring AI-powered systems", detail: "LLM APIs — OpenAI, Gemini." },
-  { stage: "RAG and multi-agent LLM architectures", detail: "DataTalk, CodeLearner." },
-  { stage: "Applying it at scale", detail: "National hackathons — SIH, UIDAI, Code For Purpose." },
+  {
+    id: "foundation",
+    chapter: "01",
+    label: "Foundation",
+    title: "Learning how systems actually work",
+    summary: "OOP, operating systems, databases, networks — the grammar beneath everything else.",
+    story:
+      "Before any of the projects or contests, there was coursework — object-oriented design, how an OS schedules and allocates, how a database enforces consistency, how packets actually move. This is where code stopped being syntax and started being systems.",
+    evidence: ["OOP", "Operating Systems", "DBMS", "Computer Networks", "System Design"],
+  },
+  {
+    id: "problem-solving",
+    chapter: "02",
+    label: "Structured Problem Solving",
+    title: "Learning to break problems down",
+    summary: "Data structures and algorithms turned vague problems into solvable ones.",
+    story:
+      "This is where problem solving became a discipline instead of an instinct — recognizing which structure fits a problem, and why. It's the base layer every later system still depends on.",
+    evidence: ["Data Structures", "Algorithms", "Complexity Analysis"],
+  },
+  {
+    id: "competitive",
+    chapter: "03",
+    label: "Competitive Pressure",
+    title: "Sharpening it under a clock",
+    summary: "Codeforces, LeetCode, GeeksforGeeks — 1000+ problems, under real time pressure.",
+    story:
+      "Competitive programming forced speed and correctness at the same time — no room for a half-understood approach. It's where algorithmic thinking stopped being theoretical and became reflexive.",
+    evidence: ["Codeforces — Specialist (1447)", "LeetCode — Knight (1875)", "1000+ problems solved"],
+  },
+  {
+    id: "full-stack",
+    chapter: "04",
+    label: "Building Applications",
+    title: "Turning logic into something usable",
+    summary: "React, Node.js, Express, FastAPI — connecting the algorithmic side to real interfaces.",
+    story:
+      "Solving a problem on paper is different from shipping something someone can actually use. This stage was about closing that gap — frontend, backend, and the plumbing between them.",
+    evidence: ["React", "Node.js", "Express.js", "FastAPI"],
+  },
+  {
+    id: "backend",
+    chapter: "05",
+    label: "Backend & Systems Thinking",
+    title: "Designing for what happens after the demo",
+    summary: "APIs, databases, and the systems questions that only show up at scale.",
+    story:
+      "Once an app works once, the next question is whether it keeps working — under load, with concurrent users, with data that grows. This stage was about designing for that, not just the happy path.",
+    evidence: ["REST APIs", "MongoDB", "MySQL", "PostgreSQL"],
+  },
+  {
+    id: "ai-systems",
+    chapter: "06",
+    label: "AI & LLM Systems",
+    title: "Where it all connects now",
+    summary: "Multi-agent systems, RAG architectures — DataTalk, CodeLearner.",
+    story:
+      "This is the current frontier — applying everything before it (systems thinking, algorithmic rigor, full-stack execution) to build software that reasons over data instead of just storing it.",
+    evidence: ["Multi-Agent Systems", "RAG Pipelines", "LLM APIs", "DuckDB"],
+  },
 ];
 
 export const projects = [
