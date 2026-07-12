@@ -3,13 +3,28 @@
 import { motion } from "framer-motion";
 import { whoIAm, profile } from "@/lib/data";
 import { InkUnderline } from "@/components/ui/Ink";
-import HeroBackground from "@/components/ui/HeroBackground";
 import EditorialLink from "@/components/ui/EditorialLink";
 
 export default function Hero() {
   return (
-    <section id="who-i-am" className="relative min-h-screen flex flex-col items-start justify-center px-6 md:px-16 overflow-hidden">
-      <HeroBackground />
+    <section id="who-i-am" className="relative min-h-screen flex flex-col items-start justify-center px-6 md:px-16 pt-28 overflow-hidden">
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-45 pointer-events-none"
+        src="/hero-bg.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(5,5,4,0.72) 0%, rgba(5,5,4,0.55) 35%, rgba(5,5,4,0.35) 65%, rgba(5,5,4,0.12) 100%)",
+        }}
+        aria-hidden="true"
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
