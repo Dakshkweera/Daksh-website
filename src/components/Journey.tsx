@@ -7,7 +7,7 @@ export default function Journey() {
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <h2 className="font-heading uppercase tracking-[0.3em] text-sm text-neon-cyan mb-3">
-            My Journey
+            The Path
           </h2>
           <p className="font-display text-3xl md:text-4xl font-bold mb-16 text-glow-purple">
             How the identity formed

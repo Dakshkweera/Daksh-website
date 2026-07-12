@@ -9,7 +9,7 @@ export const profile = {
 };
 
 export const whoIAm = {
-  eyebrow: "Who I Am",
+  eyebrow: "The Shinobi",
   lead: "A B.Tech CSE (AI/ML) student at BIT Mesra.",
   body: "My work centers on full-stack systems, AI-powered applications, multi-agent LLM systems, RAG architectures, and analytics platforms — with problem solving as the thread running through all of it.",
 };
