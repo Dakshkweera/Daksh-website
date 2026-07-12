@@ -1,47 +1,71 @@
 @import "tailwindcss";
 
+/*
+ * Base color tokens. This is the single place to change the site's
+ * color identity — everything else (Tailwind utilities, component
+ * classes) reads from these variables.
+ */
 :root {
-  --background: #050201;
-  --background-elevated: #0f0503;
-  --foreground: #fff0ea;
-  --foreground-muted: #a68f89;
-  --neon-purple: #ff2f0f;
-  --neon-purple-light: #ff7a3d;
-  --neon-cyan: #ff9d1f;
-  --neon-pink: #8a1010;
-  --border-glow: rgba(255, 47, 15, 0.35);
+  /* surfaces */
+  --canvas: #050504;
+  --deep: #030303;
+  --surface: #0a0907;
+  --raised: #100e0b;
+  --soft: #15120e;
+
+  /* text */
+  --parchment: #e9e1d4;
+  --warmgray: #a59d92;
+  --dim: #6e675e;
+
+  /* accent — orange is ink by default, light only for exceptional moments */
+  --ink: #c44f16;
+  --active: #e2641b;
+  --amber: #a86a22;
+
+  /* borders */
+  --hairline: rgba(233, 225, 212, 0.08);
+  --inkline: rgba(196, 79, 22, 0.22);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-background-elevated: var(--background-elevated);
-  --color-foreground: var(--foreground);
-  --color-foreground-muted: var(--foreground-muted);
-  --color-neon-purple: var(--neon-purple);
-  --color-neon-purple-light: var(--neon-purple-light);
-  --color-neon-cyan: var(--neon-cyan);
-  --color-neon-pink: var(--neon-pink);
-  --color-border-glow: var(--border-glow);
+  --color-canvas: var(--canvas);
+  --color-deep: var(--deep);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-soft: var(--soft);
+
+  --color-parchment: var(--parchment);
+  --color-warmgray: var(--warmgray);
+  --color-dim: var(--dim);
+
+  --color-ink: var(--ink);
+  --color-active: var(--active);
+  --color-amber: var(--amber);
+
+  --color-hairline: var(--hairline);
+  --color-inkline: var(--inkline);
+
   --font-display: var(--font-orbitron);
   --font-heading: var(--font-rajdhani);
   --font-sans: var(--font-inter);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--canvas);
+  color: var(--parchment);
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--neon-purple);
-  color: #050201;
+  background: var(--ink);
+  color: var(--canvas);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--neon-purple) var(--background);
+  scrollbar-color: var(--ink) var(--canvas);
 }
 
 ::-webkit-scrollbar {
@@ -49,52 +73,89 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--canvas);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--neon-purple);
+  background: var(--ink);
   border-radius: 8px;
 }
 
-.text-glow-purple {
-  text-shadow: 0 0 12px rgba(255, 47, 15, 0.8), 0 0 32px rgba(255, 47, 15, 0.4);
+/*
+ * Typography roles. Reach for these instead of hand-assembling
+ * font/color/tracking combinations on individual elements — this is
+ * the single place to adjust the site's typographic voice later.
+ */
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: var(--parchment);
+  line-height: 1.1;
 }
 
-.text-glow-cyan {
-  text-shadow: 0 0 12px rgba(255, 157, 31, 0.8), 0 0 32px rgba(255, 157, 31, 0.4);
+.text-section-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--parchment);
+  line-height: 1.2;
 }
 
-.glass-panel {
-  background: rgba(15, 5, 3, 0.6);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--border-glow);
+.text-chapter-label {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink);
 }
 
-.glow-border {
-  box-shadow: 0 0 0 1px var(--border-glow), 0 0 24px rgba(255, 47, 15, 0.15);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+.text-body-large {
+  font-size: 1.125rem;
+  color: var(--warmgray);
+  line-height: 1.7;
 }
 
-.glow-border:hover {
-  box-shadow: 0 0 0 1px rgba(255, 47, 15, 0.8), 0 0 40px rgba(255, 47, 15, 0.4), 0 0 80px rgba(255, 157, 31, 0.15);
-  transform: translateY(-4px);
+.text-body {
+  color: var(--warmgray);
+  line-height: 1.7;
 }
 
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(255, 47, 15, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 47, 15, 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
+.text-metadata {
+  font-size: 0.875rem;
+  color: var(--dim);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-14px); }
+.text-technical-label {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--dim);
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+/*
+ * Surface treatment — a quiet raised card, not a glowing UI panel.
+ * Default border is a hairline; a restrained ink detail appears on
+ * hover/focus rather than the whole surface glowing.
+ */
+.surface-raised {
+  background: var(--raised);
+  border: 1px solid var(--hairline);
+  transition: border-color 0.3s ease;
+}
+
+.surface-raised:hover {
+  border-color: var(--inkline);
+}
+
+/*
+ * Extremely subtle background grain. Intentionally near-invisible —
+ * this should read as "matte" rather than as a visible texture.
+ */
+.grain {
+  background-image: radial-gradient(rgba(233, 225, 212, 0.4) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
 }
 
 @keyframes pulse-glow {
@@ -102,6 +163,7 @@ body {
   50% { opacity: 1; }
 }
 
+/* Reserved for exceptional, intentional moments only — not applied by default. */
 .animate-pulse-glow {
   animation: pulse-glow 2.4s ease-in-out infinite;
 }

@@ -1,5 +1,6 @@
 import Reveal from "@/components/Reveal";
 import { projects } from "@/lib/data";
+import { InkUnderline } from "@/components/ui/Ink";
 
 const FIELDS: { key: keyof (typeof projects)[number]; label: string }[] = [
   { key: "why", label: "Why it exists" },
@@ -15,12 +16,9 @@ export default function Projects() {
     <section id="missions" className="relative py-28 px-6 md:px-16">
       <div className="max-w-4xl mx-auto">
         <Reveal>
-          <h2 className="font-heading uppercase tracking-[0.3em] text-sm text-neon-cyan mb-3">
-            Mission Records
-          </h2>
-          <p className="font-display text-3xl md:text-4xl font-bold mb-16 text-glow-purple">
-            What I&apos;ve built
-          </p>
+          <h2 className="text-chapter-label mb-3">Mission Records</h2>
+          <p className="text-section-heading text-3xl md:text-4xl mb-4">What I&apos;ve built</p>
+          <InkUnderline className="mb-16" />
         </Reveal>
 
         <div className="space-y-24">
@@ -28,26 +26,20 @@ export default function Projects() {
             <Reveal key={project.title}>
               <article className="relative">
                 <div className="flex items-baseline gap-4 mb-2">
-                  <span className="font-display text-5xl font-black text-neon-purple/20">
+                  <span className="text-display text-5xl text-dim">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-neon-purple-light">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-neon-cyan">{project.subtitle}</p>
+                    <h3 className="text-section-heading text-2xl md:text-3xl">{project.title}</h3>
+                    <p className="text-technical-label mt-1">{project.subtitle}</p>
                   </div>
                 </div>
 
-                <div className="glass-panel glow-border rounded-lg p-6 md:p-8 mt-6 space-y-5">
+                <div className="surface-raised rounded-lg p-6 md:p-8 mt-6 space-y-5">
                   {FIELDS.map(({ key, label }) => (
                     <div key={key}>
-                      <p className="font-heading uppercase tracking-wide text-xs text-neon-cyan mb-1">
-                        {label}
-                      </p>
-                      <p className="text-foreground-muted text-sm md:text-base leading-relaxed">
-                        {project[key] as string}
-                      </p>
+                      <p className="text-technical-label mb-1">{label}</p>
+                      <p className="text-body text-sm md:text-base">{project[key] as string}</p>
                     </div>
                   ))}
 
@@ -55,7 +47,7 @@ export default function Projects() {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="text-xs px-2 py-1 rounded border border-neon-purple/40 text-foreground-muted"
+                        className="text-xs px-2 py-1 rounded border border-hairline text-warmgray"
                       >
                         {t}
                       </span>
@@ -67,7 +59,7 @@ export default function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neon-cyan hover:text-glow-cyan transition-colors"
+                      className="text-ink hover:text-active transition-colors"
                     >
                       Demo ↗
                     </a>
@@ -75,7 +67,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground-muted hover:text-neon-purple-light transition-colors"
+                      className="text-warmgray hover:text-parchment transition-colors"
                     >
                       GitHub ↗
                     </a>

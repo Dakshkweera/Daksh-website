@@ -82,14 +82,14 @@ export default function Intro({ onDone }: { onDone: () => void }) {
 
           <button
             onClick={toggleMute}
-            className="absolute bottom-6 left-6 font-heading text-xs uppercase tracking-widest text-foreground-muted hover:text-neon-cyan transition-colors"
+            className="absolute bottom-6 left-6 font-heading text-xs uppercase tracking-widest text-warmgray hover:text-ink transition-colors"
           >
             {muted ? "Unmute" : "Mute"} ↦
           </button>
 
           <button
             onClick={handleSkip}
-            className="absolute top-6 right-6 font-heading text-xs uppercase tracking-widest text-foreground-muted hover:text-neon-cyan transition-colors"
+            className="absolute top-6 right-6 font-heading text-xs uppercase tracking-widest text-warmgray hover:text-ink transition-colors"
           >
             Skip ↦
           </button>

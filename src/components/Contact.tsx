@@ -1,24 +1,22 @@
 import Reveal from "@/components/Reveal";
 import { profile, nextChapter } from "@/lib/data";
+import { InkUnderline } from "@/components/ui/Ink";
 
 export default function Contact() {
   return (
     <section id="next-chapter" className="relative py-28 px-6 md:px-16">
       <div className="max-w-3xl mx-auto text-center">
         <Reveal>
-          <h2 className="font-heading uppercase tracking-[0.3em] text-sm text-neon-cyan mb-3">
-            The Next Chapter
-          </h2>
-          <p className="font-display text-3xl md:text-5xl font-bold mb-6 text-glow-purple">
-            {nextChapter.statement}
-          </p>
+          <h2 className="text-chapter-label mb-3">The Next Chapter</h2>
+          <p className="text-section-heading text-3xl md:text-5xl mb-4">{nextChapter.statement}</p>
+          <InkUnderline className="mx-auto mb-10" />
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
             <a
               href={`mailto:${profile.email}`}
-              className="font-heading uppercase tracking-wide px-6 py-3 rounded bg-neon-purple/10 border border-neon-purple text-neon-purple-light glow-border"
+              className="font-heading uppercase tracking-wide text-sm text-parchment border-b border-ink pb-1 hover:text-ink transition-colors duration-200"
             >
               {profile.email}
             </a>
@@ -26,7 +24,7 @@ export default function Contact() {
               href="/Daksh_Kweera_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-heading uppercase tracking-wide px-6 py-3 rounded border border-neon-cyan/60 text-neon-cyan glow-border"
+              className="font-heading uppercase tracking-wide text-sm text-warmgray border-b border-hairline pb-1 hover:text-parchment transition-colors duration-200"
             >
               Résumé
             </a>
@@ -34,35 +32,20 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.25}>
-          <div className="flex items-center justify-center gap-6 font-heading text-sm uppercase tracking-wide text-foreground-muted">
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neon-cyan transition-colors"
-            >
+          <div className="flex items-center justify-center gap-6 font-heading text-sm uppercase tracking-wide text-warmgray">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
               GitHub
             </a>
-            <span className="text-neon-purple/40">/</span>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neon-cyan transition-colors"
-            >
+            <span className="text-dim">/</span>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
               LinkedIn
             </a>
-            <span className="text-neon-purple/40">/</span>
-            <a
-              href={profile.medium}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neon-cyan transition-colors"
-            >
+            <span className="text-dim">/</span>
+            <a href={profile.medium} target="_blank" rel="noopener noreferrer" className="hover:text-parchment transition-colors">
               Medium
             </a>
-            <span className="text-neon-purple/40">/</span>
-            <span>{profile.location}</span>
+            <span className="text-dim">/</span>
+            <span className="text-dim">{profile.location}</span>
           </div>
         </Reveal>
       </div>

@@ -8,13 +8,6 @@ type Particle = {
   vx: number;
   vy: number;
   radius: number;
-  hue: "purple" | "cyan" | "pink";
-};
-
-const COLORS: Record<Particle["hue"], string> = {
-  purple: "255, 47, 15",
-  cyan: "255, 157, 31",
-  pink: "138, 16, 16",
 };
 
 export default function ParticleField() {
@@ -29,7 +22,6 @@ export default function ParticleField() {
     let width = window.innerWidth;
     let height = window.innerHeight;
     let particles: Particle[] = [];
-    let mouse = { x: width / 2, y: height / 2 };
     let animationId: number;
 
     function resize() {
@@ -40,18 +32,14 @@ export default function ParticleField() {
     }
 
     function createParticles() {
-      const count = Math.min(90, Math.floor((width * height) / 18000));
-      particles = Array.from({ length: count }, () => {
-        const hues: Particle["hue"][] = ["purple", "cyan", "pink"];
-        return {
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.25,
-          vy: (Math.random() - 0.5) * 0.25,
-          radius: Math.random() * 1.8 + 0.6,
-          hue: hues[Math.floor(Math.random() * (Math.random() < 0.15 ? 3 : 2))],
-        };
-      });
+      const count = Math.min(24, Math.floor((width * height) / 70000));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.08,
+        vy: (Math.random() - 0.5) * 0.08,
+        radius: Math.random() * 1.1 + 0.4,
+      }));
     }
 
     function draw() {
@@ -61,14 +49,6 @@ export default function ParticleField() {
         p.x += p.vx;
         p.y += p.vy;
 
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 140) {
-          p.x -= dx * 0.0025;
-          p.y -= dy * 0.0025;
-        }
-
         if (p.x < 0) p.x = width;
         if (p.x > width) p.x = 0;
         if (p.y < 0) p.y = height;
@@ -76,37 +56,11 @@ export default function ParticleField() {
 
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(${COLORS[p.hue]}, 0.8)`;
-        ctx!.shadowBlur = 8;
-        ctx!.shadowColor = `rgba(${COLORS[p.hue]}, 0.9)`;
+        ctx!.fillStyle = "rgba(196, 79, 22, 0.18)";
         ctx!.fill();
       }
 
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const a = particles[i];
-          const b = particles[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx!.beginPath();
-            ctx!.moveTo(a.x, a.y);
-            ctx!.lineTo(b.x, b.y);
-            ctx!.strokeStyle = `rgba(255, 47, 15, ${0.12 * (1 - dist / 120)})`;
-            ctx!.lineWidth = 1;
-            ctx!.shadowBlur = 0;
-            ctx!.stroke();
-          }
-        }
-      }
-
       animationId = requestAnimationFrame(draw);
-    }
-
-    function handleMouseMove(e: MouseEvent) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
     }
 
     resize();
@@ -117,12 +71,10 @@ export default function ParticleField() {
       resize();
       createParticles();
     });
-    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 

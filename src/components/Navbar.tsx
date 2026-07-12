@@ -25,23 +25,20 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-panel" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
+        scrolled ? "bg-canvas/90 border-b border-hairline" : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a
-          href="#"
-          className="font-display text-lg tracking-widest text-neon-purple-light text-glow-purple"
-        >
+        <a href="#" className="text-display text-lg tracking-widest">
           DK
         </a>
-        <ul className="hidden lg:flex items-center gap-6 font-heading text-xs tracking-wide uppercase text-foreground-muted">
+        <ul className="hidden lg:flex items-center gap-6 font-heading text-xs tracking-wide uppercase text-warmgray">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="hover:text-neon-cyan transition-colors duration-200"
+                className="hover:text-parchment transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -52,7 +49,7 @@ export default function Navbar() {
           href="/Daksh_Kweera_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-heading text-sm uppercase tracking-wide px-4 py-2 rounded border border-neon-purple text-neon-purple-light glow-border"
+          className="font-heading text-sm uppercase tracking-wide px-4 py-2 border border-hairline text-warmgray hover:border-ink hover:text-ink transition-colors duration-200"
         >
           Resume
         </a>

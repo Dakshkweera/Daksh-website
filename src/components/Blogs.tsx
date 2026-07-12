@@ -1,28 +1,26 @@
 import Reveal from "@/components/Reveal";
 import { blogs, profile } from "@/lib/data";
+import { InkUnderline } from "@/components/ui/Ink";
 
 export default function Blogs() {
   return (
     <section id="scroll-archive" className="relative py-28 px-6 md:px-16">
       <div className="max-w-4xl mx-auto">
         <Reveal>
-          <h2 className="font-heading uppercase tracking-[0.3em] text-sm text-neon-cyan mb-3">
-            Scroll Archive
-          </h2>
-          <p className="font-display text-3xl md:text-4xl font-bold mb-16 text-glow-purple">
-            Technical writing
-          </p>
+          <h2 className="text-chapter-label mb-3">Scroll Archive</h2>
+          <p className="text-section-heading text-3xl md:text-4xl mb-4">Technical writing</p>
+          <InkUnderline className="mb-16" />
         </Reveal>
 
         {blogs.length === 0 ? (
           <Reveal>
-            <div className="glass-panel rounded-lg p-10 border border-border-glow text-center">
-              <p className="text-foreground-muted mb-4">Articles are on the way.</p>
+            <div className="surface-raised rounded-lg p-10 text-center">
+              <p className="text-body mb-4">Articles are on the way.</p>
               <a
                 href={profile.medium}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-heading uppercase tracking-wide text-sm text-neon-cyan hover:text-glow-cyan transition-colors"
+                className="font-heading uppercase tracking-wide text-sm text-ink hover:text-active transition-colors"
               >
                 Follow on Medium ↗
               </a>
@@ -36,14 +34,12 @@ export default function Blogs() {
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block glass-panel glow-border rounded-lg p-6 h-full"
+                  className="block surface-raised rounded-lg p-6 h-full"
                 >
-                  <p className="text-xs uppercase tracking-wide text-neon-cyan mb-2">{post.topic}</p>
-                  <p className="font-display text-xl font-bold text-neon-purple-light mb-2">
-                    {post.title}
-                  </p>
-                  <p className="text-sm text-foreground-muted mb-4">{post.premise}</p>
-                  <p className="text-xs text-foreground-muted">
+                  <p className="text-technical-label mb-2">{post.topic}</p>
+                  <p className="text-section-heading text-xl mb-2">{post.title}</p>
+                  <p className="text-body text-sm mb-4">{post.premise}</p>
+                  <p className="text-metadata">
                     {post.date} · {post.readTime}
                   </p>
                 </a>

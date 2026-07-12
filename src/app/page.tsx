@@ -26,7 +26,7 @@ export default function Home() {
         <HowIThink />
         <Contact />
       </main>
-      <footer className="relative z-10 py-8 text-center text-xs text-foreground-muted border-t border-border-glow">
+      <footer className="relative z-10 py-8 text-center text-xs text-dim border-t border-hairline">
         Built by Daksh Kweera
       </footer>
     </>
