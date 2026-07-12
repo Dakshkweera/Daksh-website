@@ -1,21 +1,108 @@
 export const profile = {
   name: "Daksh Kweera",
   role: "SWE — AI/ML & Full-Stack",
-  tagline: "Building scalable full-stack and AI-powered systems.",
   location: "Haldwani, Uttarakhand",
-  email: "kweera2005@gmail.com",
-  phone: "+91-8445600807",
+  email: "smartwork2327@gmail.com",
   linkedin: "https://www.linkedin.com/in/daksh-kweera-2008aa289/",
   github: "https://github.com/Dakshkweera",
-  summary:
-    "B.Tech CSE (AI/ML) student at BIT Mesra building scalable full-stack and AI-powered systems — multi-agent LLM pipelines, RAG architectures, and analytics platforms. Proficient in OOP, REST APIs, and CS fundamentals (OS, DBMS, CN, LLD). Smart India Hackathon 2025 Winner (Top 0.1%); 1000+ DSA problems solved.",
+  medium: "https://medium.com/@smartwork2327",
 };
 
-export const stats = [
-  { label: "CGPA", value: "8.57" },
-  { label: "DSA problems solved", value: "1000+" },
-  { label: "SIH 2025 rank", value: "Top 0.1%" },
-  { label: "LeetCode rating", value: "1842" },
+export const whoIAm = {
+  eyebrow: "Who I Am",
+  lead: "A B.Tech CSE (AI/ML) student at BIT Mesra.",
+  body: "My work centers on full-stack systems, AI-powered applications, multi-agent LLM systems, RAG architectures, and analytics platforms — with problem solving as the thread running through all of it.",
+};
+
+export const journey = [
+  { stage: "Computer science foundations", detail: "OOP, OS, DBMS, computer networks, system design." },
+  { stage: "Data structures and algorithms", detail: "The base layer for everything that followed." },
+  { stage: "Competitive problem solving", detail: "Codeforces, LeetCode, GeeksforGeeks — 1000+ problems." },
+  { stage: "Building full-stack applications", detail: "React, Node.js, Express, FastAPI." },
+  { stage: "Backend systems, APIs, and databases", detail: "MongoDB, MySQL, PostgreSQL, REST APIs." },
+  { stage: "Exploring AI-powered systems", detail: "LLM APIs — OpenAI, Gemini." },
+  { stage: "RAG and multi-agent LLM architectures", detail: "DataTalk, CodeLearner." },
+  { stage: "Applying it at scale", detail: "National hackathons — SIH, UIDAI, Code For Purpose." },
+];
+
+export const projects = [
+  {
+    title: "DataTalk",
+    subtitle: "Multi-Agent Data Analytics",
+    why: "Non-technical users routinely need to analyze large datasets but can't write SQL or Python.",
+    problem: "Querying 100,000+ row datasets in natural language, without exposing raw data to an LLM.",
+    built:
+      "A system that automatically routes natural-language requests across SQL, Python, and search agents on a TypeScript + Express backend. LLMs only ever see schema metadata — never raw dataset contents — while all execution runs locally through DuckDB.",
+    challenge:
+      "Keeping data fully local and secure while still letting an LLM reason about it accurately enough to route and generate correct queries.",
+    decision:
+      "Built a sandboxed Python execution environment with strict resource controls for statistical analysis and chart generation, rather than giving the LLM direct execution access.",
+    result: "Natural-language querying over 100K+ row datasets in under 15 seconds, no manual scripting required.",
+    tech: ["ReactJS", "TypeScript", "Express.js", "DuckDB", "LLM APIs"],
+    demo: "https://natwest-hackathon-beta.vercel.app/",
+    github: "https://github.com/Dakshkweera/Natwest-Hackathon",
+  },
+  {
+    title: "Dhanalysis",
+    subtitle: "Portfolio Analytics Platform",
+    why: "Manual Excel-based portfolio analysis doesn't scale past a handful of stocks and takes hours to redo.",
+    problem: "Computing XIRR, CAGR, drawdown, and risk metrics reliably across a real multi-stock portfolio.",
+    built:
+      "A platform automating XIRR, CAGR, drawdown, and risk metric computation across 20+ stocks, with NIFTY 50 benchmarking, rate-limited market data ingestion, and scheduled automated reporting.",
+    challenge: "Keeping financial calculations accurate while ingesting rate-limited external market data reliably.",
+    decision:
+      "Added a portfolio-aware AI insight layer on top of the raw metrics, plus Firebase Auth with JWT session management for proper multi-user portfolio isolation.",
+    result: "Hours of manual Excel work replaced with instant, reliable analytics.",
+    tech: ["ReactJS", "Node.js", "Express.js", "MongoDB", "Firebase Auth"],
+    demo: "https://dhanalysis.vercel.app/",
+    github: "https://github.com/Dakshkweera",
+  },
+  {
+    title: "CodeLearner",
+    subtitle: "Code Navigation Platform",
+    why: "Understanding an unfamiliar codebase by reading files one at a time is slow and error-prone.",
+    problem: "Making a large, unfamiliar GitHub repository navigable and queryable quickly.",
+    built:
+      "A platform that ingests GitHub repositories, builds dependency graphs with React Flow, and runs a RAG-based AI assistant (Perplexity API) for context-aware Q&A grounded in the actual repository — supporting 100+ files per session.",
+    challenge: "Chunking code in a way that preserves enough context for the RAG assistant to answer accurately.",
+    decision:
+      "Used a Tree-sitter AST parser with function-level chunking instead of naive line-based splitting, backed by JWT auth, rate-limited APIs, and PostgreSQL-backed session persistence.",
+    result: "~65% reduction in codebase onboarding time.",
+    tech: ["ReactJS", "Node.js", "Express.js", "PostgreSQL", "TypeScript"],
+    demo: "https://code-learner-theta.vercel.app/",
+    github: "https://github.com/Dakshkweera/codelearner",
+  },
+];
+
+export const competitive = {
+  codeforces: { rank: "Specialist", rating: 1447 },
+  leetcode: { rank: "Knight", rating: 1875 },
+  problemsSolved: "1000+",
+  platforms: "Codeforces, LeetCode, and GeeksforGeeks",
+};
+
+export const battleRecords = [
+  {
+    event: "Smart India Hackathon 2025",
+    result: "Winner",
+    scale: "Top 0.1% among 100,000+ teams nationwide",
+    context: "",
+    contribution: "",
+  },
+  {
+    event: "UIDAI Data Hackathon 2026",
+    result: "National Finalist",
+    scale: "Top 0.5% nationwide",
+    context: "",
+    contribution: "",
+  },
+  {
+    event: "Code For Purpose 2026",
+    result: "National Finalist",
+    scale: "Top 0.5% among 5,000+ teams",
+    context: "",
+    contribution: "",
+  },
 ];
 
 export const skills = [
@@ -24,12 +111,12 @@ export const skills = [
     items: ["C++", "SQL", "JavaScript", "TypeScript"],
   },
   {
-    category: "Frameworks & Libraries",
-    items: ["React", "Node.js", "Express.js", "FastAPI"],
+    category: "Full-Stack Development",
+    items: ["React", "Node.js", "Express.js", "FastAPI", "REST APIs"],
   },
   {
-    category: "AI/ML & LLMs",
-    items: ["LLM APIs (OpenAI/Gemini)", "RAG Pipelines", "Multi-Agent Systems", "DuckDB"],
+    category: "AI & LLM Systems",
+    items: ["LLM APIs", "OpenAI APIs", "Gemini APIs", "RAG Pipelines", "Multi-Agent Systems", "DuckDB"],
   },
   {
     category: "Databases",
@@ -40,8 +127,15 @@ export const skills = [
     items: ["Git", "GitHub", "Postman", "Vercel", "Docker"],
   },
   {
-    category: "Coursework",
-    items: ["DSA", "OOP", "Operating Systems", "DBMS", "Computer Networks", "System Design (LLD)"],
+    category: "Computer Science",
+    items: [
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "Operating Systems",
+      "Database Management Systems",
+      "Computer Networks",
+      "System Design (LLD)",
+    ],
   },
 ];
 
@@ -50,7 +144,6 @@ export const education = {
   degree: "B.Tech in CSE (AI/ML)",
   duration: "Sep 2023 – May 2027",
   location: "Ranchi, Jharkhand",
-  details: "CGPA: 8.57 | Class XII: 95.5% | Class X: 93%",
 };
 
 export const experience = [
@@ -60,59 +153,49 @@ export const experience = [
     duration: "Jun 2024 – Jul 2024",
     link: "https://drive.google.com/file/d/1zPK4m7S0Va_yahiuLOpNoC6F876bHg3v/view?usp=sharing",
     linkLabel: "Internship Letter",
-    bullets: [
-      "Boosted AI-driven matchmaking alignment accuracy by 28% by redesigning core matching logic and evaluation criteria.",
-      "Cut chatbot response error rate by 18% through systematic interaction analysis and targeted rule-based adjustments.",
-      "Surfaced 50+ functional and UI bugs via structured QA testing, directly improving platform stability and user experience.",
+    focus: "AI-driven matchmaking logic, chatbot interaction analysis, rule-based improvements, structured QA.",
+    metrics: [
+      { value: "28%", label: "Matchmaking accuracy improvement" },
+      { value: "18%", label: "Chatbot error rate reduction" },
+      { value: "50+", label: "Bugs surfaced via structured QA" },
     ],
   },
 ];
 
-export const projects = [
+// Add real Medium articles here as they're published.
+export const blogs: {
+  title: string;
+  topic: string;
+  premise: string;
+  readTime: string;
+  date: string;
+  url: string;
+}[] = [];
+
+// Replace each placeholder with a real example from an actual project.
+export const howIThink = [
   {
-    title: "DataTalk",
-    subtitle: "Multi-Agent Data Analytics",
-    tech: ["ReactJS", "TypeScript", "Express.js", "DuckDB", "LLM APIs"],
-    demo: "https://natwest-hackathon-beta.vercel.app/",
-    github: "https://github.com/Dakshkweera/Natwest-Hackathon",
-    bullets: [
-      "Delivered natural-language querying over 100K+ row datasets in under 15 seconds, eliminating manual SQL/Python scripting entirely for non-technical users.",
-      "Engineered automatic query routing across SQL, Python, and search agents on a TypeScript + Express backend; LLMs access schema metadata only — all execution runs locally via DuckDB for full data security.",
-      "Built a sandboxed Python execution environment with strict resource controls for statistical analysis and chart generation, plus an interactive preprocessing pipeline with multi-table support.",
-    ],
+    title: "Understanding unfamiliar problems",
+    placeholder: "How I break down a problem I haven't seen before — add a real example.",
   },
   {
-    title: "Dhanalysis",
-    subtitle: "Portfolio Analytics Platform",
-    tech: ["ReactJS", "Node.js", "Express.js", "MongoDB", "Firebase Auth"],
-    demo: "https://dhanalysis.vercel.app/",
-    github: "https://github.com/Dakshkweera",
-    bullets: [
-      "Automated XIRR, CAGR, drawdown, and risk metric computation across 20+ stocks, replacing hours of manual Excel work with instant, reliable results.",
-      "Integrated NIFTY 50 benchmarking with rate-limited Yahoo Finance ingestion, cron-based automated reporting, and a portfolio-aware AI insight layer for contextual analysis.",
-      "Implemented Firebase Auth with JWT session management supporting full multi-user portfolio isolation and scalable architecture.",
-    ],
+    title: "Breaking down complex systems",
+    placeholder: "How I decompose a large system into smaller, testable pieces — add a real example.",
   },
   {
-    title: "CodeLearner",
-    subtitle: "Code Navigation Platform",
-    tech: ["ReactJS", "Node.js", "Express.js", "PostgreSQL", "TypeScript"],
-    demo: "https://code-learner-theta.vercel.app/",
-    github: "https://github.com/Dakshkweera/codelearner",
-    bullets: [
-      "Reduced codebase onboarding time by ~65% via GitHub repo ingestion and React Flow dependency graphs — replacing manual code reading.",
-      "Built a RAG-based AI assistant (Perplexity API) for context-aware code Q&A grounded in the ingested repository, supporting 100+ files per session.",
-      "Engineered a Tree-sitter AST parser with function-level chunking; applied JWT auth, rate-limited APIs, and PostgreSQL-backed session persistence with OOP design principles.",
-    ],
+    title: "Debugging",
+    placeholder: "My actual debugging process when something breaks — add a real example.",
+  },
+  {
+    title: "Choosing technical approaches",
+    placeholder: "How I decide between competing technical approaches — add a real example, e.g. from DataTalk or CodeLearner.",
+  },
+  {
+    title: "Learning unfamiliar technologies",
+    placeholder: "How I ramp up on a new technology or API — add a real example.",
   },
 ];
 
-export const achievements = [
-  { title: "Smart India Hackathon 2025 Winner", detail: "Top 0.1% among 100,000+ teams nationwide." },
-  { title: "UIDAI Data Hackathon 2026 National Finalist", detail: "Top 0.5% nationwide." },
-  { title: "Code For Purpose 2026 National Finalist", detail: "Top 0.5% among 5,000+ teams." },
-  {
-    title: "Competitive programming",
-    detail: "Codeforces: 1447 (Specialist) | LeetCode: 1842 (Top ~6%) | 1000+ DSA problems solved across Codeforces, LeetCode, and GeeksforGeeks.",
-  },
-];
+export const nextChapter = {
+  statement: "This is where I am right now — the journey is still going.",
+};

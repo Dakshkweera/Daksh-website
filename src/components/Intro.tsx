@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import DomainExpansion from "@/components/DomainExpansion";
 
 const VIDEO_SRC = "/intro.mp4";
 
-type Phase = "video" | "domain" | "done";
+type Phase = "video" | "done";
 
 export default function Intro({ onDone }: { onDone: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -24,38 +23,28 @@ export default function Intro({ onDone }: { onDone: () => void }) {
     const video = videoRef.current;
     if (!video) return;
 
-    function toDomain() {
-      if (settledRef.current) return;
-      settledRef.current = true;
-      setPhase("domain");
-    }
-
-    function handleError() {
+    function finish() {
       if (settledRef.current) return;
       settledRef.current = true;
       setPhase("done");
     }
 
-    video.addEventListener("ended", toDomain);
-    video.addEventListener("error", handleError);
+    video.addEventListener("ended", finish);
+    video.addEventListener("error", finish);
 
     // Safety net: if the video never becomes playable (e.g. missing file), don't block the site.
     const safety = setTimeout(() => {
-      if (video.readyState === 0) handleError();
+      if (video.readyState === 0) finish();
     }, 2500);
 
     return () => {
-      video.removeEventListener("ended", toDomain);
-      video.removeEventListener("error", handleError);
+      video.removeEventListener("ended", finish);
+      video.removeEventListener("error", finish);
       clearTimeout(safety);
     };
   }, []);
 
   useEffect(() => {
-    if (phase === "domain") {
-      const t = setTimeout(() => setPhase("done"), 2200);
-      return () => clearTimeout(t);
-    }
     if (phase === "done") {
       document.body.style.overflow = "";
       onDoneRef.current();
@@ -79,15 +68,11 @@ export default function Intro({ onDone }: { onDone: () => void }) {
         <motion.div
           className="fixed inset-0 z-[200] bg-black overflow-hidden"
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Video stays mounted (just hidden) through the domain phase so its
-              audio/decoder state doesn't hitch, and so there's zero gap in the
-              opaque backdrop between phases. */}
           <video
             ref={videoRef}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ visibility: phase === "video" ? "visible" : "hidden" }}
             src={VIDEO_SRC}
             autoPlay
             muted
@@ -95,36 +80,19 @@ export default function Intro({ onDone }: { onDone: () => void }) {
             preload="auto"
           />
 
-          <AnimatePresence>
-            {phase === "domain" && (
-              <motion.div
-                className="absolute inset-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                <DomainExpansion />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <button
+            onClick={toggleMute}
+            className="absolute bottom-6 left-6 font-heading text-xs uppercase tracking-widest text-foreground-muted hover:text-neon-cyan transition-colors"
+          >
+            {muted ? "Unmute" : "Mute"} ↦
+          </button>
 
-          {phase === "video" && (
-            <>
-              <button
-                onClick={toggleMute}
-                className="absolute bottom-6 left-6 font-heading text-xs uppercase tracking-widest text-foreground-muted hover:text-neon-cyan transition-colors"
-              >
-                {muted ? "Unmute" : "Mute"} ↦
-              </button>
-
-              <button
-                onClick={handleSkip}
-                className="absolute top-6 right-6 font-heading text-xs uppercase tracking-widest text-foreground-muted hover:text-neon-cyan transition-colors"
-              >
-                Skip ↦
-              </button>
-            </>
-          )}
+          <button
+            onClick={handleSkip}
+            className="absolute top-6 right-6 font-heading text-xs uppercase tracking-widest text-foreground-muted hover:text-neon-cyan transition-colors"
+          >
+            Skip ↦
+          </button>
         </motion.div>
       )}
     </AnimatePresence>

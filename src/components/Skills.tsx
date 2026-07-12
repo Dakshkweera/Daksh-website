@@ -3,14 +3,14 @@ import { skills } from "@/lib/data";
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-28 px-6">
+    <section id="arsenal" className="relative py-28 px-6 md:px-16">
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <h2 className="font-heading uppercase tracking-[0.3em] text-sm text-neon-cyan mb-3">
-            02 — Skills
+            The Arsenal
           </h2>
           <p className="font-display text-3xl md:text-4xl font-bold mb-12 text-glow-purple">
-            Tech arsenal
+            Technical capabilities
           </p>
         </Reveal>
 

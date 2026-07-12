@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#achievements", label: "Achievements" },
-  { href: "#contact", label: "Contact" },
+  { href: "#who-i-am", label: "Who I Am" },
+  { href: "#journey", label: "Journey" },
+  { href: "#missions", label: "Missions" },
+  { href: "#trials", label: "Trials" },
+  { href: "#battle-records", label: "Battles" },
+  { href: "#arsenal", label: "Arsenal" },
+  { href: "#next-chapter", label: "Connect" },
 ];
 
 export default function Navbar() {
@@ -35,7 +36,7 @@ export default function Navbar() {
         >
           DK
         </a>
-        <ul className="hidden md:flex items-center gap-8 font-heading text-sm tracking-wide uppercase text-foreground-muted">
+        <ul className="hidden lg:flex items-center gap-6 font-heading text-xs tracking-wide uppercase text-foreground-muted">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
