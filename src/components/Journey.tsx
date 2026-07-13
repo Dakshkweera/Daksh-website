@@ -21,6 +21,15 @@ export default function Journey() {
 
   return (
     <section id="journey" className="relative py-28 px-6 md:px-16 bg-canvas overflow-hidden">
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+        src="/mountain-reference.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+      />
       <JourneyTerrain activeStage={activeId} progress={scrollYProgress} />
 
       <div className="relative max-w-3xl mx-auto">
