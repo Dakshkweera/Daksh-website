@@ -10,6 +10,10 @@ export default function Hero() {
     <section id="who-i-am" className="relative min-h-screen flex flex-col items-start justify-center px-6 md:px-16 pt-28 overflow-hidden">
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-45 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 82%, transparent 100%)",
+        }}
         src="/hero-bg.mp4"
         autoPlay
         loop

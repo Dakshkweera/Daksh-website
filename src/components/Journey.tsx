@@ -23,6 +23,10 @@ export default function Journey() {
     <section id="journey" className="relative py-28 px-6 md:px-16 bg-canvas overflow-hidden">
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 18%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 18%)",
+        }}
         src="/mountain-reference.mp4"
         autoPlay
         loop
@@ -32,7 +36,7 @@ export default function Journey() {
       />
       <JourneyTerrain activeStage={activeId} progress={scrollYProgress} />
 
-      <div className="relative max-w-3xl mx-auto">
+      <div className="relative max-w-3xl">
         <Reveal>
           <h2 className="text-chapter-label mb-3">The Path</h2>
           <p className="text-section-heading text-3xl md:text-4xl mb-16">Built one layer at a time.</p>
