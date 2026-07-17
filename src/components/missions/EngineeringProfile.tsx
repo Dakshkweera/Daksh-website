@@ -30,7 +30,7 @@ export default function EngineeringProfile({ metrics }: { metrics: Metric[] }) {
     <div className="flex justify-center">
       <svg
         viewBox={`0 0 ${SIZE} ${SIZE}`}
-        className="w-full max-w-[380px] aspect-square"
+        className="w-full max-w-[520px] aspect-square"
         role="img"
         aria-label={metrics.map((m) => `${m.label}: ${m.value} of ${MAX_VALUE}`).join(", ")}
       >
