@@ -27,7 +27,7 @@ export const rightPagePhotoStyle: CSSProperties = {
 export const paperInkStyle: CSSProperties = {
   ["--parchment" as string]: "#231908",
   ["--warmgray" as string]: "#453320",
-  ["--dim" as string]: "#77613f",
+  ["--dim" as string]: "#5c4626",
   ["--hairline" as string]: "rgba(55, 36, 16, 0.22)",
   ["--inkline" as string]: "rgba(196, 79, 22, 0.42)",
 } as CSSProperties;

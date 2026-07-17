@@ -13,7 +13,7 @@ export default function BookCover({
     <motion.button
       onClick={onOpen}
       aria-label="Open Mission Archive"
-      className="group [grid-area:1/1] relative block mx-auto w-[260px] sm:w-[300px] md:w-[340px] rounded-sm overflow-hidden focus:outline-none"
+      className="group [grid-area:1/1] relative block mx-auto w-[320px] sm:w-[400px] md:w-[460px] rounded-sm overflow-hidden focus:outline-none"
       style={{
         aspectRatio: "0.78",
         transformOrigin: "left center",
