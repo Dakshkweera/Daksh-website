@@ -1,8 +1,8 @@
 import type { Metric } from "./missionData";
 
-const SIZE = 280;
+const SIZE = 420;
 const CENTER = SIZE / 2;
-const MAX_RADIUS = 88;
+const MAX_RADIUS = 92;
 const MAX_VALUE = 5;
 const RINGS = [0.2, 0.4, 0.6, 0.8, 1];
 
@@ -30,8 +30,7 @@ export default function EngineeringProfile({ metrics }: { metrics: Metric[] }) {
     <div className="flex justify-center">
       <svg
         viewBox={`0 0 ${SIZE} ${SIZE}`}
-        width={SIZE}
-        height={SIZE}
+        className="w-full max-w-[380px] aspect-square"
         role="img"
         aria-label={metrics.map((m) => `${m.label}: ${m.value} of ${MAX_VALUE}`).join(", ")}
       >
@@ -57,7 +56,7 @@ export default function EngineeringProfile({ metrics }: { metrics: Metric[] }) {
 
         {metrics.map((m, i) => {
           const angle = -90 + i * (360 / count);
-          const label = pointAt(angle, MAX_RADIUS + 26);
+          const label = pointAt(angle, MAX_RADIUS + 32);
           const cos = Math.cos((angle * Math.PI) / 180);
           const sin = Math.sin((angle * Math.PI) / 180);
           const anchor = Math.abs(sin) > 0.9 ? "middle" : cos > 0 ? "start" : "end";
