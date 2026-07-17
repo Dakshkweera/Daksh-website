@@ -5,44 +5,38 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { missions } from "./missionData";
 import LeftPage from "./LeftPage";
 import RightPage from "./RightPage";
-import MissionCover from "./MissionCover";
+import BookCover from "./BookCover";
 
 export default function MissionBook() {
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState(missions[0].id);
   const reduced = useReducedMotion();
-  const mission = missions.find((m) => m.id === activeId) ?? null;
+  const mission = missions.find((m) => m.id === activeId) ?? missions[0];
 
   return (
-    <div className="relative mx-auto max-w-6xl">
-      <AnimatePresence mode="wait">
-        {!mission ? (
+    <div
+      className="relative mx-auto max-w-6xl grid place-items-center"
+      style={{ perspective: 2200, minHeight: 560 }}
+    >
+      <AnimatePresence>
+        {!open && <BookCover key="cover" onOpen={() => setOpen(true)} reduced={!!reduced} />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {open && (
           <motion.div
-            key="covers"
-            initial={reduced ? { opacity: 0 } : { opacity: 0, y: 10 }}
-            animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            exit={reduced ? { opacity: 0 } : { opacity: 0, y: -10 }}
-            transition={{ duration: reduced ? 0.15 : 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8"
-          >
-            {missions.map((m) => (
-              <MissionCover key={m.id} mission={m} onOpen={() => setActiveId(m.id)} />
-            ))}
-          </motion.div>
-        ) : (
-          <motion.div
-            key="book"
-            initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.97, rotateY: -8 }}
-            animate={reduced ? { opacity: 1 } : { opacity: 1, scale: 1, rotateY: 0 }}
-            exit={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.97 }}
-            transition={{ duration: reduced ? 0.15 : 0.6, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: "left center", perspective: 1800 }}
+            key="interior"
+            className="[grid-area:1/1] w-full"
+            initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1, transition: { delay: reduced ? 0 : 0.3, duration: reduced ? 0.15 : 0.5, ease: [0.22, 1, 0.36, 1] } }}
+            exit={{ opacity: 0, scale: 0.97, transition: { duration: 0.25 } }}
           >
             <button
-              onClick={() => setActiveId(null)}
+              onClick={() => setOpen(false)}
               className="text-technical-label mb-4 transition-colors duration-200 hover:text-parchment"
               style={{ color: "var(--dim)" }}
             >
-              ← Back to Archive
+              ← Close Archive
             </button>
 
             <div
@@ -56,7 +50,7 @@ export default function MissionBook() {
                 className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 w-24 hidden md:block"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.35) 55%, transparent)",
+                    "linear-gradient(90deg, transparent, rgba(40,26,12,0.3) 45%, rgba(40,26,12,0.3) 55%, transparent)",
                 }}
                 aria-hidden="true"
               />
